@@ -22,6 +22,10 @@ Route::get('/painel', function () {
     return view('painel');
 })->middleware(['auth', 'verified'])->name('painel');
 
+Route::get('/dados', function () {
+    return view('dados');
+})->middleware(['auth', 'verified'])->name('dados');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
